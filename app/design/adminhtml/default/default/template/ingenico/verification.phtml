@@ -1,0 +1,74 @@
+<style>
+    #status-table {
+        width: 50%;
+        margin-top: 25px;
+    }
+
+    #status-table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    #status-table,
+    th,
+    td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    #status-table tr th {
+        text-align: left;
+    }
+
+    #tpsl-error-message {
+        margin-top: 5px;
+    }
+</style>
+<div class="container">
+    <form action="<?php echo $this->getResultUrl() ?>" method="POST">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <label for="merchant-transaction-id">Merchant Transaction Id</label>
+        <input type="text" class="admin__control-text" name="merchant_transaction_id" id="merchant-transaction-id" value="<?php echo $_POST['merchant_transaction_id'] ?>" required>
+
+        <label for="txn-date">Txn Date</label>
+        <input type="date" class="admin__control-text" name="txn_date" id="txn-date" value="<?php echo $_POST['txn_date'] ?>" required>
+
+        <input type="submit" class="form-button" id="verification-submit-btn">
+    </form>
+    <p style="color:red;display:none" id="tpsl-error-message"> An Error Occured . Please try again later</p>
+    <?php if ($this->getData()['status_code']) : ?>
+        <table id="status-table">
+            <tr>
+                <th>Status Code</th>
+                <td id="td-status-code">
+                    <?php echo $this->getData()['status_code'] ?></td>
+            </tr>
+            <tr>
+                <th>Status Message</th>
+                <td id="td-status-message"><?php echo $this->getData()['status_message'] ?></td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td id="td-message"><?php echo $this->getData()['message'] ?></td>
+            </tr>
+            <tr>
+                <th>Merchant Transaction Reference No</th>
+                <td id="td-merchant-transaction-id"><?php echo $this->getData()['merchant_transaction_id'] ?></td>
+            </tr>
+            <tr>
+                <th>TPSL Transaction ID</th>
+                <td id="td-tpsl-transaction-id"><?php echo $this->getData()['tpsl_transaction_id'] ?></td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td id="td-amount"><?php echo $this->getData()['amount'] ?></td>
+            </tr>
+            <tr>
+                <th>Date Time</th>
+                <td id="td-date-time"><?php echo $this->getData()['date_time'] ?></td>
+            </tr>
+        </table>
+    <?php endif; ?>
+</div>

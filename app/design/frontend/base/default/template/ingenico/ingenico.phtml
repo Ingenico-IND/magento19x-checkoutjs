@@ -1,0 +1,96 @@
+<h1>Please wait...</h1>
+<p>Do not refresh the page or press back button</p>
+<br><br>
+<div id="ingenicopayment"></div>
+<?php
+$standard = Mage::getModel('ingenico/standard');
+$jsarray = $standard->getRequest();
+?>
+<script src="https://www.paynimo.com/paynimocheckout/client/lib/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://www.paynimo.com/Paynimocheckout/server/lib/checkout.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var jsarray = <?php echo json_encode($jsarray); ?>;
+
+        var configJson = {
+            'tarCall': false,
+            'features': {
+                'showLoader': true,
+                'showPGResponseMsg': true,
+                'enableNewWindowFlow': true, //for hybrid applications please disable this by passing false
+                'enableExpressPay': jsarray['enableExpressPay'],
+                'enableAbortResponse': false,
+                'enableMerTxnDetails': true,
+                'hideSavedInstruments': jsarray['hideSavedInstruments'],
+                'enableInstrumentDeRegistration': jsarray['enableInstrumentDeRegistration'],
+                'separateCardMode': jsarray['separateCardMode']
+            },
+            'consumerData': {
+                'deviceId': 'WEBSH2',
+                'token': jsarray['token'],
+                'authKey': '',
+                'responseStr': '',
+                'payOptionsHandler': '',
+                'returnUrl': jsarray['ReturnURL'],
+                'paymentMode': jsarray['paymentmodes'],
+                'merchantLogoUrl': jsarray['merchant_logo_url'], //provided merchant logo will be displayed
+                'merchantId': jsarray['mrctCode'],
+                'merchantMsg': jsarray['merchantMsg'],
+                'checkoutElement': jsarray['embedPopup'],
+                'txnType': jsarray['txnType'],
+                'txnSubType': 'DEBIT',
+                'saveInstrument': jsarray['saveInstrument'],
+                'disclaimerMsg': jsarray['disclaimerMsg'],
+                'currency': jsarray['CurrencyType'],
+                'consumerId': jsarray['CustomerId'],
+                'consumerMobileNo': jsarray['customerMobNumber'],
+                'paymentModeOrder': [
+                    jsarray['paymentModeOrder_1'],
+                    jsarray['paymentModeOrder_2'],
+                    jsarray['paymentModeOrder_3'],
+                    jsarray['paymentModeOrder_4'],
+                    jsarray['paymentModeOrder_5'],
+                    jsarray['paymentModeOrder_6'],
+                    jsarray['paymentModeOrder_7'],
+                    jsarray['paymentModeOrder_8'],
+                    jsarray['paymentModeOrder_9'],
+                    jsarray['paymentModeOrder_10']
+                ],
+                'consumerEmailId': jsarray['email'],
+                'txnId': jsarray['merchantTxnRefNumber'], //Unique merchant transaction ID
+                'items': [{
+                    'itemId': jsarray['scode'],
+                    'amount': jsarray['Amount'],
+                    'comAmt': '0'
+                }],
+                'cartDescription': '}{custname:' + jsarray['CustomerName'] + '}{orderid:' + jsarray['orderId'],
+                'merRefDetails': [{
+                    "name": "Txn. Ref. ID",
+                    "value": jsarray['merchantTxnRefNumber']
+                }],
+                'customStyle': {
+                    'PRIMARY_COLOR_CODE': jsarray['primary_color_code'], //merchant primary color code
+                    'SECONDARY_COLOR_CODE': jsarray['secondary_color_code'], //provide merchant's suitable color code
+                    'BUTTON_COLOR_CODE_1': jsarray['button_color_code_1'], //merchant's button background color code
+                    'BUTTON_COLOR_CODE_2': jsarray['button_color_code_2'] //provide merchant's suitable color code for button text
+                },
+            }
+        };
+
+        jQuery.pnCheckout(configJson);
+        console.log(configJson);
+        if (configJson.features.enableNewWindowFlow) {
+            pnCheckoutShared.openNewWindow();
+        }
+        $(".popup-close").click(function() {
+            $.ajax({
+                url: jsarray['restorequoteurl'],
+                cache: false,
+                success: function(html) {
+                    window.location = jsarray['carturl'];
+                }
+            });
+        });
+    });
+</script>

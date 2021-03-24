@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Ingenico</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>MIT</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Ingenico Magento Payment Module</summary>
+    <description>Ingenico ePayments (a Worldline brand) is India's leading digital payment solutions company. Being a company with more than 45 years of global payment experience, we are present in India for over 20 years and are powering over 550,000 businesses with our tailored payment solution.</description>
+    <notes>First Version of Ingenico Payment Module</notes>
+    <authors><author><name>Ingenico</name><user>Ingenico</user><email>prod.provisioning.ind@ingenico.com</email></author></authors>
+    <date>2020-12-08</date>
+    <time>13:31:06</time>
+    <contents><target name="magecommunity"><dir name="Ingenico"><dir name="Ingenico"><dir name="controllers"><file name="PaymentController.php" hash="6241cd8e3058747ab85c25ec4e7aeb2f"/><dir name="Adminhtml"><file name="ReconciliationController.php" hash="9ad7500f02aa95fec5d167320be7f565"/><file name="ReconciliationresultController.php" hash="61185df974b9e73d3a528fe8dc82acd6"/><file name="VerificationController.php" hash="dffa22a318ae89cb70e7a47be9c018cf"/><file name="VerificationresultController.php" hash="ba144ecf2e744d273baf5db33c613bdb"/></dir></dir><dir name="Block"><file name="Reconciliation.php" hash="98c92db9383ad690de4b31ae1b8a4e75"/><file name="Verification.php" hash="a43aa13db6b460241bd807bfb63833d5"/><dir name="Standard"><file name="Form.php" hash="59523046b4697d26916f4a16501f0f35"/></dir></dir><dir name="etc"><file name="config.xml" hash="787ca7ac235e6c54c028a81b49848b55"/><file name="system.xml" hash="da81a0cae99f29a0bff681b651cbbf75"/></dir><dir name="Helper"><file name="Data.php" hash="8e6c1c9beff25671951a74de10afcd62"/></dir><dir name="Model"><file name="Standard.php" hash="3220d6f3e20a6941c88272c418d15a44"/><dir name="Source"><file name="Paymentmodes.php" hash="73644befe0c1f4ce09114cf38d8baf17"/><file name="Txntype.php" hash="41f217f42128b11dd2df3b48962ffc4a"/><file name="Url.php" hash="e7455235f47ceefadcf2fcb5dc395836"/></dir></dir><file name="CHANGELOG.md" hash="dff02bb8c02327fac1407906ba9112f6"/></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Ingenico_Ingenico.xml" hash="69ac045050c24218db2b1de7bafdc10b"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="ingenico"><file name="ingenico.phtml" hash="bba8ee280f523cc9a7aa88fb79f1251d"/><dir name="payment"><file name="mark.phtml" hash="6a59dfd7b81025cd57abe0826074c874"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="ingenico"><file name="reconciliation.phtml" hash="d47cf1e1aac9e6bfb0cf89e0d5e39770"/><file name="verification.phtml" hash="d0e98795acf5d28daec997b3bf0cc05d"/></dir></dir><dir name="layout"><file name="ingenico.xml" hash="ff582a2b017ba4ba1d6f7fe3b544946e"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="ingenico"><file name="ingenico.png" hash="cf0edbdf717fe5df628a40655140ef74"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="base"><dir name="default"><dir name="ingenico"><file name="style.css" hash="643c7dd832af356ad7cf570f0d807cab"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>7.1.22</max></php></required></dependencies>
+</package>

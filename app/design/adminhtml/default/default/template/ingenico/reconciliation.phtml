@@ -1,0 +1,17 @@
+<div class="container">
+    <form action="<?php echo $this->getResultUrl() ?>" method="POST">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <label for="from-date">From Date</label>
+        <input type="date" name="from_date" id="from-date" value="<?php echo $_POST['from_date'] ?>" max="<?php echo $this->getMaxFromDate() ?>" required>
+
+        <label for="to-date">To Date</label>
+        <input type="date" name="to_date" id="to-date" value="<?php echo $_POST['to_date'] ?>" max="<?php echo $this->getMaxToDate() ?>" required>
+
+        <input type="submit" class="action-primary form-button id="reconciliation-submit-btn">
+    </form>
+    <?php if ($this->getMessage()) : ?>
+        <div class="container message-system-inner" id="reconciliation-message" style="padding: 20px; margin-top:30px">
+            <?php echo $this->getMessage() ?>
+        </div>
+    <?php endif ?>
+</div>
