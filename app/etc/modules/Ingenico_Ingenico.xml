@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config>
-   <modules>
-      <Ingenico_Ingenico>
-         <active>true</active>
-         <codePool>community</codePool>
-      </Ingenico_Ingenico>
-   </modules>
-</config>

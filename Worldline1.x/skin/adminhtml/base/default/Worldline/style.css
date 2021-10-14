@@ -1,0 +1,20 @@
+.Worldline_header .logo {
+    background: url("https://www.paynimo.com/CompanyDocs/company-logo-md.png");
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 20px 0 0px;
+    width: 180px;
+    height: 60px;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+.Worldline_header .description {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    font-weight: normal;
+}
+
+.Worldline-payment-gateway table {
+    width: 100% !important;
+}
