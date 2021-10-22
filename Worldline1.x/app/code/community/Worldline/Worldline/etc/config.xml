@@ -28,7 +28,7 @@
         <model>Worldline/standard</model>
         <active>1</active>
         <order_status>pending</order_status>
-        <title>Worldline Payment Gateway</title>
+        <title>Cards / UPI / Netbanking / Wallets</title>
         <payment_action>sale</payment_action>
 		    <submit_url>https://www.paynimo.com/</submit_url>
         <allowspecific>0</allowspecific>
